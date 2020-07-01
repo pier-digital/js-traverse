@@ -276,10 +276,8 @@ function copy (src) {
     else return src;
 }
 
-var objectKeys = Object.keys || function keys (obj) {
-    var res = [];
-    for (var key in obj) res.push(key)
-    return res;
+var objectKeys = function keys (obj) {
+  return Object.getOwnPropertyNames(obj).concat(Object.getOwnPropertySymbols(obj))
 };
 
 function toS (obj) { return Object.prototype.toString.call(obj) }
